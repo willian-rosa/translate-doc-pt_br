@@ -1,5 +1,21 @@
 # translate-doc-pt_br
 
+## Atualizando projeto
+
+Atualizando a pasta **en**:
+```shell
+cd en
+git pull
+```
+Atualizando a pasta **doc-base**;
+```shell
+cd doc-base
+git pull
+```
+Atualizando a pasta **pt_BR**;
+1. Clicar em Sync Fork
+2. Criar uma nova branch em cima da master
+
 Comando necessários para rodar compilar o site da documentação do PHP em Docker.
 
 
