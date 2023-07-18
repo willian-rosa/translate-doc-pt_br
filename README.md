@@ -1,5 +1,10 @@
 # translate-doc-pt_br
 
+## Quais arquivos podem ser atualizado?
+```
+http://doc.php.net/revcheck.php?p=files&lang=pt_br
+```
+
 ## Atualizando projeto
 
 Atualizando a pasta **en**:
@@ -33,8 +38,9 @@ docker build -t translate_doc_php_pt_br .
 ### 1. Gerando revcheck
 
 ```shell
-docker run -it --name phpdoc --rm -v ${PWD}:/app -p 80:80 --workdir /app/  translate_doc_php_pt_br bash
-php doc-base/configure.php --with-lang=pt_BR && php phd/render.php --docbook doc-base/.manual.xml --package PHP --format php --lang pt_BR && php doc-base/scripts/revcheck.php pt_BR > revcheck.html
+docker run -it --name phpdoc --rm -v ${PWD}:/app -v ${PWD}/php.ini:/usr/local/etc/php/conf.d/php.ini -p 80:80 --workdir /app/  translate_doc_php_pt_br bash
+
+php doc-base/configure.php --with-lang=pt_BR --enable-xml-details && php phd/render.php --docbook doc-base/.manual.xml --package PHP --format php --lang=pt_BR && php doc-base/scripts/revcheck.php pt_BR > revcheck.html
 
 # fora do container 
 xdg-open revcheck.html
@@ -49,3 +55,7 @@ php doc-base/configure.php --with-lang=pt_BR && php phd/render.php --docbook doc
 ```
 
 Exemplo de link de teste: [http://localhost/manual/pt_BR/function.json-encode.php](http://localhost/manual/pt_BR/function.json-encode.php)
+
+
+
+http://doc.php.net/revcheck.php?p=plain&lang=pt_br&hbp=96c9d88bad9a7d7d44bfb7f26c226df7ee9ddf26&f=reference/array/functions/key.xml&c=off
